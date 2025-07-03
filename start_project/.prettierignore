@@ -1,0 +1,23 @@
+# Cocos Creator 相關
+library/
+local/
+temp/
+build/
+profiles/
+
+# 依賴和輸出
+node_modules/
+dist/
+*.min.js
+*.min.css
+
+# 配置檔案
+package-lock.json
+yarn.lock
+
+# 其他
+*.log
+*.md
+*.json
+*.meta
+*.fnt 
