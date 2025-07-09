@@ -8,9 +8,11 @@
     "lint:fix": "eslint assets/scripts/**/*.ts --fix",
     "format": "prettier --write assets/scripts/**/*.ts",
     "format:check": "prettier --check assets/scripts/**/*.ts",
+    "format:all": "prettier --write assets/scripts/**/*.ts && eslint assets/scripts/**/*.ts --fix",
     "type-check": "tsc --noEmit",
     "build": "tsc",
-    "check-all": "npm run type-check && npm run lint && npm run format:check"
+    "check-all": "npm run type-check && npm run lint && npm run format:check",
+    "dev": "npm run format:all && npm run type-check"
   },
   "keywords": ["cocos-creator", "game", "typescript"],
   "author": "",
@@ -30,4 +32,4 @@
   "engines": {
     "node": ">=14.0.0"
   }
-} 
+}

@@ -17,7 +17,7 @@
         "__id__": 2
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -84,10 +84,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 12
       },
       {
-        "__id__": 12
+        "__id__": 13
+      },
+      {
+        "__id__": 14
       }
     ],
     "_prefab": null,
@@ -163,8 +166,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
-      "height": 640
+      "width": 0,
+      "height": 0
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -198,7 +201,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "e1WoFrQ79G7r4ZuQE3HlNb"
+    "_id": "c3CI8oXSBEB6AB/WSO6058"
   },
   {
     "__type__": "cc.Camera",
@@ -234,7 +237,7 @@
     },
     "_renderStages": 1,
     "_alignWithScreen": true,
-    "_id": "81GN3uXINKVLeW4+iKSlim"
+    "_id": "b6iDDIFQhExoAZR90vU86u"
   },
   {
     "__type__": "cc.Node",
@@ -436,6 +439,9 @@
     "_components": [
       {
         "__id__": 10
+      },
+      {
+        "__id__": 11
       }
     ],
     "_prefab": null,
@@ -519,6 +525,20 @@
     "_id": "f0qs4vzM5Ob7kQjHz2kH8K"
   },
   {
+    "__type__": "40f92bfutdCTqnZr5B9iMup",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 9
+    },
+    "_enabled": true,
+    "jumpHeight": 200,
+    "jumpDuration": 0.3,
+    "maxMoveSpeed": 400,
+    "accel": 350,
+    "_id": "c2SQveAXxPYK8sKzx909T1"
+  },
+  {
     "__type__": "cc.Canvas",
     "_name": "",
     "_objFlags": 0,
@@ -561,5 +581,26 @@
     "_originalWidth": 0,
     "_originalHeight": 0,
     "_id": "29zXboiXFBKoIV4PQ2liTe"
+  },
+  {
+    "__type__": "a7ba0ILr2BKdKga6kGu1LGQ",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "prefabStar": {
+      "__uuid__": "85c54d30-a80c-4d28-929d-0fbb28576d86"
+    },
+    "maxStarDuration": 3,
+    "minStarDuration": 5,
+    "nodeGround": {
+      "__id__": 7
+    },
+    "nodePlayer": {
+      "__id__": 9
+    },
+    "_id": "63Gn1NrBlPG6iMme7h9t6T"
   }
 ]
