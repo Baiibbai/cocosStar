@@ -117,6 +117,9 @@
     },
     "_enabled": true,
     "pickRadius": 60,
+    "scoreAudio": {
+      "__uuid__": "55d110b9-bab6-4d9d-9416-03e46904fa35"
+    },
     "_id": ""
   },
   {
@@ -125,7 +128,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "85c54d30-a80c-4d28-929d-0fbb28576d86"
     },
     "fileId": "",
     "sync": false

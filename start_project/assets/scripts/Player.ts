@@ -26,6 +26,9 @@ export default class Player extends cc.Component {
     @property
     accel = 0;
 
+    @property(cc.AudioClip)
+    jumpAudio = null;
+
     private accLeft = false;
 
     private accRight = false;
@@ -36,16 +39,50 @@ export default class Player extends cc.Component {
         return this.node.y;
     }
 
+    private playJumpAudio(): void {
+        if (this.jumpAudio) {
+            cc.audioEngine.playEffect(this.jumpAudio as cc.AudioClip, false);
+        }
+    }
+
+    public restartGame(): void {
+        // 停止所有現有動畫
+        this.node.stopAllActions();
+
+        // 重置移動相關的狀態
+        this.xSpeed = 0;
+        this.accLeft = false;
+        this.accRight = false;
+
+        // 重新啟動跳躍動畫（Game.ts已經設置了正確的起始位置）
+        cc.tween(this.node)
+            .repeatForever(
+                cc
+                    .tween(this.node)
+                    .call(() => {
+                        // 在每次跳躍開始時播放音效
+                        this.playJumpAudio();
+                    })
+                    .by(this.jumpDuration, { y: this.jumpHeight }, { easing: 'sineOut' })
+                    .by(this.jumpDuration, { y: -this.jumpHeight }, { easing: 'sineIn' }),
+            )
+            .start();
+    }
+
     start(): void {
         // 初始化邏輯
     }
 
     onLoad(): void {
-        // 直接使用鏈式呼叫創建跳躍動畫
+        // 直接使用鏈式呼叫創建跳躍動畫，並在每次跳躍開始時播放音效
         cc.tween(this.node)
             .repeatForever(
                 cc
                     .tween(this.node)
+                    .call(() => {
+                        // 在每次跳躍開始時播放音效
+                        this.playJumpAudio();
+                    })
                     .by(this.jumpDuration, { y: this.jumpHeight }, { easing: 'sineOut' })
                     .by(this.jumpDuration, { y: -this.jumpHeight }, { easing: 'sineIn' }),
             )
@@ -72,6 +109,14 @@ export default class Player extends cc.Component {
         }
 
         this.node.x += this.xSpeed * dt;
+
+        // 限制玩家在畫面邊界內
+        const halfScreenWidth = cc.winSize.width / 2;
+        if (this.node.x <= -halfScreenWidth) {
+            this.node.x = -halfScreenWidth;
+        } else if (this.node.x >= halfScreenWidth) {
+            this.node.x = halfScreenWidth;
+        }
     }
 
     private onKeyDown(event: KeyboardEvent): void {
